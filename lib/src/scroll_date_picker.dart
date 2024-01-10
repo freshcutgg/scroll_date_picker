@@ -301,47 +301,52 @@ class _ScrollDatePickerState extends State<ScrollDatePicker> {
           children: _getScrollDatePicker(),
         ),
         // Date Picker Indicator
-        IgnorePointer(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: widget.topOverlay ?? Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        widget.options.backgroundColor,
-                        widget.options.backgroundColor.withOpacity(0.7),
-                      ],
-                    ),
-                  ),
+        Positioned.fill(
+          child: IgnorePointer(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: widget.topOverlay ??
+                      Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              widget.options.backgroundColor,
+                              widget.options.backgroundColor.withOpacity(0.7),
+                            ],
+                          ),
+                        ),
+                      ),
                 ),
-              ),
-              widget.indicator ??
-                  Container(
-                    height: widget.options.itemExtent,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.15),
-                      borderRadius: const BorderRadius.all(Radius.circular(4)),
+                widget.indicator ??
+                    Container(
+                      height: widget.options.itemExtent,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.15),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(4)),
+                      ),
                     ),
-                  ),
-              Expanded(
-                child: widget.bottomOverlay ?? Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        widget.options.backgroundColor.withOpacity(0.7),
-                        widget.options.backgroundColor,
-                      ],
-                    ),
-                  ),
+                Expanded(
+                  child: widget.bottomOverlay ??
+                      Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              widget.options.backgroundColor.withOpacity(0.7),
+                              widget.options.backgroundColor,
+                            ],
+                          ),
+                        ),
+                      ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],
