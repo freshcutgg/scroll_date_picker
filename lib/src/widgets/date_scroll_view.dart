@@ -60,7 +60,7 @@ class DateScrollView extends StatelessWidget {
     _painter.layout();
     return locale.languageCode == ar
         ? _painter.size.width + 40.0
-        : _painter.size.width + 8.0;
+        : _painter.size.width + 16.0;
   }
 
   @override
