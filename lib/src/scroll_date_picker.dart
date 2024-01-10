@@ -302,6 +302,8 @@ class _ScrollDatePickerState extends State<ScrollDatePicker> {
         ),
         // Date Picker Indicator
         Positioned.fill(
+          top: -2,
+          bottom: -2,
           child: IgnorePointer(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
