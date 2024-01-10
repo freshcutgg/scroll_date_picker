@@ -15,6 +15,7 @@ class ScrollDatePicker extends StatefulWidget {
     DatePickerOptions? options,
     DatePickerScrollViewOptions? scrollViewOptions,
     this.indicator,
+    this.overlay,
     this.viewType,
   })  : minimumDate = minimumDate ?? DateTime(1960, 1, 1),
         maximumDate = maximumDate ?? DateTime.now(),
@@ -53,6 +54,9 @@ class ScrollDatePicker extends StatefulWidget {
 
   /// Indicator displayed in the center of the ScrollDatePicker
   final Widget? indicator;
+
+  /// Overlay displayed over the unselected text of the ScrollDatePicker
+  final Widget? overlay;
 
   @override
   State<ScrollDatePicker> createState() => _ScrollDatePickerState();
@@ -320,7 +324,7 @@ class _ScrollDatePickerState extends State<ScrollDatePicker> {
                     ),
                   ),
               Expanded(
-                child: Container(
+                child: widget.overlay ?? Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
